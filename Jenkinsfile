@@ -7,9 +7,25 @@ pipeline {
   }
 
   stages {
+    stage('Clean Workspace') {
+      steps {
+        cleanWs()
+      }
+    }
+    
     stage('Clone Repo') {
       steps {
-        git 'https://github.com/amitpandey8834/Expence-Tracker-Web-App'
+        git(
+          url: 'https://github.com/amitpandey8834/Expence-Tracker-Web-App',
+          branch: 'main'
+        )
+      }
+    }
+
+    stage('Verify Clone') {
+      steps {
+        sh 'ls -la'
+        sh 'ls -la expense-tracker-backend'
       }
     }
 
