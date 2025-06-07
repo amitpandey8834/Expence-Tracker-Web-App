@@ -23,12 +23,14 @@ frontend/coverage/
 frontend/.eslintcache
 
 # -------------------
-# Docker
+# Docker (safe ignores)
 # -------------------
-**/Dockerfile
+.dockerignore
 **/docker-compose.override.yml
 **/docker-compose.dev.yml
-.dockerignore
+
+# Do NOT ignore Dockerfile anymore
+# (removed: **/Dockerfile)
 
 # -------------------
 # Jenkins

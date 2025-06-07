@@ -1,0 +1,44 @@
+version: "3.9"  # You can remove this line if you want, it's deprecated
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: devops-monitoring-prometheus-1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: devops-monitoring-grafana-1
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin  # default admin username
+      - GF_SECURITY_ADMIN_PASSWORD=admin123  # default admin password
+    restart: unless-stopped
+
+  loki:
+    image: grafana/loki:2.8.2
+    container_name: devops-monitoring-loki-1
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki/index:/loki/index
+      - ./loki/chunks:/loki/chunks
+      - ./loki/boltdb-cache:/loki/boltdb-cache
+      - ./loki/config.yaml:/etc/loki/local-config.yaml
+    command:
+      - "-config.file=/etc/loki/local-config.yaml"
+    restart: unless-stopped
+
+volumes:
+  prometheus-data:
+  grafana-storage:
