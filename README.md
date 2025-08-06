@@ -1,37 +1,67 @@
-# Expense Tracker Web App
+💰 Expense Tracker Web App
+A full-stack Expense Tracker app built with React, Node.js, Express, MongoDB, and integrated with modern DevOps practices.
 
-**A full-stack Expense Tracker built with Node.js, Express, MongoDB, React, and DevOps automation 🚀**
+🌐 Live Demo
+Coming Soon — Hosted on AWS EC2 via Terraform & Kubernetes.
 
-Track your expenses securely with cloud-native deployment and monitoring tools — complete with CI/CD pipelines, Docker, Kubernetes, Terraform, and Prometheus/Grafana observability.
+🚀 Tech Stack
+Frontend
 
----
+React.js
 
-## 🧠 About the Project
+Tailwind CSS
 
-This application is built as a real-world demo of end-to-end DevOps workflows:
+Backend
 
-- Frontend: React + Tailwind CSS for the UI  
-- Backend: Node.js + Express + MongoDB for REST APIs  
-- Automated CI/CD: Jenkins / GitHub Actions pipelines  
-- Infrastructure as Code: Terraform + AWS EC2  
-- Orchestration: Docker containers deployed on Kubernetes (EKS)  
-- Configuration Management: Ansible playbooks for server setup  
-- Logging & Monitoring: Prometheus, Grafana, and Loki dashboards
+Node.js
 
-It showcases full-cycle infrastructure provisioning, container deployments, logging, monitoring, and secret/driven configurations — ideal for DevOps job portfolios.
+Express
 
----
+MongoDB
 
-## ⚙️ Features
+DevOps Tools
 
-- User authentication and profile setup  
-- CRUD operations for tracking expenses and income  
-- Dynamic dashboards showing current balance, total spending, and category-wise breakdown  
-- Real-time log streaming and health metrics using Prometheus & Grafana  
-- Secure secrets and config management using Kubernetes ConfigMaps & Secrets  
-- Auto-scaling pods with Horizontal Pod Autoscaler in Kubernetes cluster
+Docker
 
----
+GitHub Actions & Jenkins (CI/CD)
 
-## 📦 Architecture Diagram
+Terraform (Infrastructure as Code)
+
+Kubernetes (EKS for orchestration)
+
+Prometheus & Grafana (Monitoring)
+
+Loki (Logging)
+
+Ansible (Config management)
+
+AWS EC2 (Deployment)
+
+Kubernetes Secrets & ConfigMaps (Secrets Management)
+
+🧪 Features
+Add, edit, delete expenses
+
+Categorize by type (e.g., Food, Transport)
+
+Filter by date range
+
+CI/CD pipelines for auto-deployment
+
+Containerized architecture
+
+Real-time monitoring dashboards
+
+Secure environment & secrets management
+
+🏗️ Project Structure
+/Expence-Tracker-Web-App
+├── client/ – React frontend
+├── server/ – Node backend (API, DB)
+├── Dockerfile – Container image
+├── docker-compose.yml – Local container orchestration
+├── Jenkinsfile – CI/CD pipeline
+├── terraform/ – Infra as code configs
+├── k8s/ – Kubernetes manifests
+└── README.md – Project documentation
 
