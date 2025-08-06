@@ -1,67 +1,98 @@
-💰 Expense Tracker Web App
-A full-stack Expense Tracker app built with React, Node.js, Express, MongoDB, and integrated with modern DevOps practices.
+# Expense‑Tracker Web App
 
-🌐 Live Demo
-Coming Soon — Hosted on AWS EC2 via Terraform & Kubernetes.
+A full‑stack expense management application built with React (frontend), Node.js/Express (backend), and MongoDB. Users can register, log in, and track expenses with real‑time updates. Designed for deployment with Docker.
 
-🚀 Tech Stack
-Frontend
+---
 
-React.js
+## 🚀 Features
 
-Tailwind CSS
+- **User authentication** — secure sign-up and login using JWT.
+- **Expense management** — add, list, delete user‑specific expenses.
+- **Dashboard UI** — clean React + Tailwind interface for user interaction.
+- **Live balance** — calculates total expenses instantly.
+- **Dockerized setup** — runs both frontend and backend via Docker Compose.
+- **MongoDB** — stores expenses per user; securely separated.
 
-Backend
+---
 
-Node.js
+## 🧰 Tech Stack
 
-Express
+| Layer        | Tech Stack              |
+|-------------:|--------------------------|
+| Frontend     | React.js, Tailwind CSS   |
+| Backend      | Node.js, Express.js      |
+| Database     | MongoDB                   |
+| Authentication | JWT (JSON Web Tokens) |
+| Containerization | Docker, Docker Compose |
+| Hosting      | (Optional) Docker on any cloud or Linux host |
 
-MongoDB
+---
 
-DevOps Tools
+## 🔧 Prerequisites
 
-Docker
+- Install **Docker** and **Docker Compose**
+- (Optionally) Node.js / npm locally if you plan to run without Docker.
+- Access to a MongoDB instance (via Docker or cloud).
 
-GitHub Actions & Jenkins (CI/CD)
+---
 
-Terraform (Infrastructure as Code)
+## 🏁 Quick Start
 
-Kubernetes (EKS for orchestration)
+### Using Docker (Recommended)
 
-Prometheus & Grafana (Monitoring)
+```bash
+git clone https://github.com/amitpandey8834/Expence-Tracker-Web-App.git
+cd Expence-Tracker-Web-App
+docker-compose down --volumes
+docker-compose up --build
+Backend: http://localhost:5000
 
-Loki (Logging)
+Frontend: http://localhost:3000
 
-Ansible (Config management)
+Local Development (Without Docker)
+Backend:
+bash
+Copy
+Edit
+cd backend
+npm install
+# Create a .env file with MONGO_URI, JWT_SECRET, PORT
+npm run dev
+Frontend:
+bash
+Copy
+Edit
+cd expense-tracker-frontend
+npm install
+npm start
+📁 Project Structure
+arduino
+Copy
+Edit
+/
+├── backend
+│   ├── server.js
+│   ├── db.js
+│   ├── routes/
+│   └── models/
+└── expense-tracker-frontend
+    ├── src/
+    ├── tailwind.config.js
+    └── public/
+🛠️ API Endpoints
+Endpoint	Method	Purpose	Auth Required
+POST /api/auth/register	POST	Register a new user	❌
+POST /api/auth/login	POST	User login returns JWT	❌
+GET /api/expenses	GET	Get user’s expenses	✅
+POST /api/expenses	POST	Create a new expense	✅
+DELETE /api/expenses/:id	DELETE	Remove an expense by ID	✅
 
-AWS EC2 (Deployment)
+🎨 Frontend Highlights
+Clean Tailwind CSS UI with responsive design
 
-Kubernetes Secrets & ConfigMaps (Secrets Management)
+Forms for Register and Login
 
-🧪 Features
-Add, edit, delete expenses
+Dashboard to add, view, and delete expenses
 
-Categorize by type (e.g., Food, Transport)
-
-Filter by date range
-
-CI/CD pipelines for auto-deployment
-
-Containerized architecture
-
-Real-time monitoring dashboards
-
-Secure environment & secrets management
-
-🏗️ Project Structure
-/Expence-Tracker-Web-App
-├── client/ – React frontend
-├── server/ – Node backend (API, DB)
-├── Dockerfile – Container image
-├── docker-compose.yml – Local container orchestration
-├── Jenkinsfile – CI/CD pipeline
-├── terraform/ – Infra as code configs
-├── k8s/ – Kubernetes manifests
-└── README.md – Project documentation
+Protected routes via React Router and JWT (requires login to access dashboard)
 
